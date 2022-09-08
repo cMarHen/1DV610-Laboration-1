@@ -19,11 +19,33 @@ export class ResultCalculator {
   }
 
   getHighestNumber() {
+    if (this.#listOfNumbers.length <= 0) {
+      throw new Error('There is no numbers in the collection')
+    }
 
+    let highestNumber = this.#listOfNumbers[0]
+    this.#listOfNumbers.map((number) => {
+      if (number > highestNumber) {
+        highestNumber = number
+      }
+    })
+
+    return highestNumber
   }
 
   getLowestNumber() {
+    if (this.#listOfNumbers.length <= 0) {
+      throw new Error('There is no numbers in the collection')
+    }
+    
+    let lowestNumber = this.#listOfNumbers[0]
+    this.#listOfNumbers.map((number) => {
+      if (number < lowestNumber) {
+        lowestNumber = number
+      }
+    })
 
+    return lowestNumber
   }
 
   getMeanValue() {

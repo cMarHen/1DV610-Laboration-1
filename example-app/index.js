@@ -8,11 +8,11 @@ const calc = new ResultCalculator()
 // Add Integers to collection
 NUMBERS.map((number) => calc.setNumberToCollection(number))
 // Print all integers
-console.log(calc.getAllNumbers)
+console.log(calc.getAllNumbers())
+console.log(calc.getHighestNumber())
+console.log(calc.getLowestNumber())
 
 // Delete numbers from collection
+calc.emptyNumberCollection()
 
-
-const numbers = calc.getAllNumbers()
-
-console.log(numbers)
+console.log(calc.getAllNumbers())
