@@ -26,7 +26,7 @@ export class ResultCalculator {
    * @throws {TypeError}
    */
   setNumberToCollection (number) {
-    this.#errorHandler.checkForTypeError(number, 'number')
+    this.#errorHandler.errCheckForType(number, 'number')
     this.#listOfNumbers.push(number)
   }
 
@@ -50,7 +50,7 @@ export class ResultCalculator {
    * @memberof ResultCalculator
    */
   getHighestNumber () {
-    this.#errorHandler.checkIfEmptyError(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
   }
@@ -63,7 +63,7 @@ export class ResultCalculator {
    * @memberof ResultCalculator
    */
   getLowestNumber () {
-    this.#errorHandler.checkIfEmptyError(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }

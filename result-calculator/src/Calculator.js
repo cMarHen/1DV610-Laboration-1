@@ -5,11 +5,6 @@
  */
 export class Calculator {
   /**
-   * Constructor for class Calculator.
-   */
-  constructor () {}
-
-  /**
    * Calculate highest number in an array.
    *
    * @param {number[]} arr - Array of number.
@@ -37,7 +32,7 @@ export class Calculator {
     let lowestNumber = arr[0]
 
     for (const number of arr) {
-      if (number > lowestNumber) {
+      if (number < lowestNumber) {
         lowestNumber = number
       }
     }
