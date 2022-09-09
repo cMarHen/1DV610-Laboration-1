@@ -49,7 +49,13 @@ export class ResultCalculator {
   }
 
   getMeanValue() {
+    if (this.#listOfNumbers.length <= 0) {
+      throw new Error('There is no numbers in the collection')
+    }
 
+    const valueOfNumbersInTotal = this.#listOfNumbers.reduce((value, index) => value + index, 0)
+
+    return (valueOfNumbersInTotal / this.#listOfNumbers.length)
   }
 
   getMedianValue() {
@@ -60,8 +66,9 @@ export class ResultCalculator {
     this.#listOfNumbers = []
   }
 
-  #getSortedNumbers() {
-
+  #getSortedNumbersAscending(arr) {
+    const arrCopy = [...arr]
+    return arrCopy.sort(value, index => value - index)
   }
 
   #iterator() {}

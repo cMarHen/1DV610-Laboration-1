@@ -1,4 +1,4 @@
-import { ResultCalculator } from '../result-calculator/src/ResultCalculator.js';
+import { ResultCalculator } from '../result-calculator/ResultCalculator.js';
 
 const NUMBERS = [42, 21, 534, 23, 32, 11, 21]
 const FLOAT_NUMBERS = [42.242, 21.2311, 534.1635, 23.3246, 32.854, 11.634, 21.723]
@@ -11,6 +11,7 @@ NUMBERS.map((number) => calc.setNumberToCollection(number))
 console.log(calc.getAllNumbers())
 console.log(calc.getHighestNumber())
 console.log(calc.getLowestNumber())
+console.log(calc.getMeanValue())
 
 // Delete numbers from collection
 calc.emptyNumberCollection()
