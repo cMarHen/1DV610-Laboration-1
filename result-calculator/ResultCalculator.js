@@ -1,54 +1,74 @@
+import { Calculator } from './src/Calculator.js'
+import { ErrorHandler } from './src/ErrorHandler.js'
+
+/**
+ * Module for type ResultCalculator.
+ *
+ * @class ResultCalculator
+ */
 export class ResultCalculator {
   #listOfNumbers = []
+  #calculator
+  #errorHandler
+
+  /**
+   * Constructor for ResultCalculator.
+   */
   constructor () {
+    this.#calculator = new Calculator()
+    this.#errorHandler = new ErrorHandler()
   }
 
-  setNumberToCollection(number) {
-    if (typeof number === 'number') {
-      this.#listOfNumbers.push(number)
-    } else {
-      throw new RangeError('The list should only contain numbers.')
-    }
+  /**
+   * Insert a number to the collection.
+   *
+   * @param {number} number - The number to insert.
+   * @throws {TypeError}
+   */
+  setNumberToCollection (number) {
+    this.#errorHandler.checkForTypeError(number, 'number')
+    this.#listOfNumbers.push(number)
   }
 
-  getAllNumbers() {
+  /**
+   * Get all numbers in the collection.
+   *
+   * @returns {number[]} - The numbers in the collection.
+   */
+  getAllNumbers () {
     const copy = []
     this.#listOfNumbers.map((number) => copy.push(number))
 
     return copy
   }
 
-  getHighestNumber() {
-    if (this.#listOfNumbers.length <= 0) {
-      throw new Error('There is no numbers in the collection')
-    }
+  /**
+   * Get the highest number found in the collection.
+   *
+   * @throws {Error} - Throws Error if collection is empty.
+   * @returns {number} - The highest number in the collection.
+   * @memberof ResultCalculator
+   */
+  getHighestNumber () {
+    this.#errorHandler.checkIfEmptyError(this.#listOfNumbers)
 
-    let highestNumber = this.#listOfNumbers[0]
-    this.#listOfNumbers.map((number) => {
-      if (number > highestNumber) {
-        highestNumber = number
-      }
-    })
-
-    return highestNumber
+    return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
   }
 
-  getLowestNumber() {
-    if (this.#listOfNumbers.length <= 0) {
-      throw new Error('There is no numbers in the collection')
-    }
-    
-    let lowestNumber = this.#listOfNumbers[0]
-    this.#listOfNumbers.map((number) => {
-      if (number < lowestNumber) {
-        lowestNumber = number
-      }
-    })
+  /**
+   * Get the lowest number found in the collection.
+   *
+   * @throws {Error} - Throws Error if collection is empty.
+   * @returns {number} - The lowest number in the collection.
+   * @memberof ResultCalculator
+   */
+  getLowestNumber () {
+    this.#errorHandler.checkIfEmptyError(this.#listOfNumbers)
 
-    return lowestNumber
+    return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }
 
-  getMeanValue() {
+  /* getMeanValue() {
     if (this.#listOfNumbers.length <= 0) {
       throw new Error('There is no numbers in the collection')
     }
@@ -60,18 +80,19 @@ export class ResultCalculator {
 
   getMedianValue() {
 
-  }
+  } */
 
-  emptyNumberCollection() {
+  /**
+   * Erase all items inside the collection.
+   */
+  emptyNumberCollection () {
     this.#listOfNumbers = []
   }
 
-  #getSortedNumbersAscending(arr) {
+  /* #getSortedNumbersAscending(arr) {
     const arrCopy = [...arr]
     return arrCopy.sort(value, index => value - index)
   }
 
-  #iterator() {}
-
-  #errorHandler() {}
+  #iterator() {} */
 }

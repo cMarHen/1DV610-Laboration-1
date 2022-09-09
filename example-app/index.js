@@ -5,15 +5,20 @@ const FLOAT_NUMBERS = [42.242, 21.2311, 534.1635, 23.3246, 32.854, 11.634, 21.72
 
 const calc = new ResultCalculator()
 
+try {
 // Add Integers to collection
 NUMBERS.map((number) => calc.setNumberToCollection(number))
 // Print all integers
 console.log(calc.getAllNumbers())
-console.log(calc.getHighestNumber())
+  console.log(calc.getHighestNumber())
+
 console.log(calc.getLowestNumber())
-console.log(calc.getMeanValue())
 
 // Delete numbers from collection
 calc.emptyNumberCollection()
 
 console.log(calc.getAllNumbers())
+
+} catch (error) {
+  console.log(error.message)
+}
