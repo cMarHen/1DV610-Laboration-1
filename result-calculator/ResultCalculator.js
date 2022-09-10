@@ -100,6 +100,53 @@ export class ResultCalculator {
   }
 
   /**
+   * Get the most frequent value from the collection.
+   *
+   * @returns {number} - The mode value.
+   */
+  getModeValue () {
+    return 0
+  }
+
+  /**
+   * Get the standard deviation value from the collection.
+   *
+   * @returns {number} - The standard deviation value.
+   */
+  getStdDeviationValue () {
+    return 0
+  }
+
+  /**
+   * Get standard normal distribution from the collection.
+   *
+   * @returns {object} - Data representing the normal distribution.
+   */
+  getStdNormalDistribution () {
+    return {}
+  }
+
+  /**
+   * Get the variation coefficient of the collection.
+   *
+   * @returns {number} - The variation coefficient of collection.
+   */
+  getCoefficientOfVariationValue () {
+    return 0
+  }
+
+  /**
+   * Calculate a margin of error to get a confidence interval.
+   *
+   * @param {number} percent - Percent of a quantity.
+   * @param {number} quantity - Total quantity.
+   * @returns {number} - The calculated margin of error.
+   */
+  calculateMarginOfError (percent, quantity) {
+    return 0
+  }
+
+  /**
    * Erase all items inside the collection.
    */
   emptyNumberCollection () {
