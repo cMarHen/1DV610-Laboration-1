@@ -34,18 +34,20 @@ export class Sorter {
   /**
    * Sort array in a ascending order.
    *
+   * @param {number[]} arr - The array to sort.
    * @returns {number[]} - Array sorted in ascending order.
    */
-  #sortAscending () {
-    return []
+  #sortAscending (arr) {
+    return arr.sort((a, b) => a - b)
   }
 
   /**
    * Sort array in a descending order.
    *
+   * @param {number[]} arr - The array to sort.
    * @returns {number[]} - Array sorted in descending order.
    */
-  #sortDescending () {
-    return []
+  #sortDescending (arr) {
+    return arr.sort((a, b) => a - b).reverse()
   }
 }
