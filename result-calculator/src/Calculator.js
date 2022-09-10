@@ -39,4 +39,19 @@ export class Calculator {
 
     return lowestNumber
   }
+
+  /**
+   * Calculate the mean value of an array.
+   *
+   * @param {number[]} arr - Array of number(s)
+   * @returns {number} - The mean value.
+   */
+  calculateMeanValue (arr) {
+    let totalValue = 0
+    for (const number of arr) {
+      totalValue += number
+    }
+
+    return (totalValue / arr.length)
+  }
 }

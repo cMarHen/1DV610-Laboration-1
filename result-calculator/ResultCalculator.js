@@ -47,7 +47,6 @@ export class ResultCalculator {
    *
    * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The highest number in the collection.
-   * @memberof ResultCalculator
    */
   getHighestNumber () {
     this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
@@ -60,7 +59,6 @@ export class ResultCalculator {
    *
    * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The lowest number in the collection.
-   * @memberof ResultCalculator
    */
   getLowestNumber () {
     this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
@@ -68,19 +66,27 @@ export class ResultCalculator {
     return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }
 
-  /* getMeanValue() {
-    if (this.#listOfNumbers.length <= 0) {
-      throw new Error('There is no numbers in the collection')
-    }
+  /**
+   * Get the average value of the collection.
+   *
+   * @returns {number} - The mean value.
+   * @throws {Error} - If collection is empty.
+   */
+  getMeanValue () {
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
 
-    const valueOfNumbersInTotal = this.#listOfNumbers.reduce((value, index) => value + index, 0)
-
-    return (valueOfNumbersInTotal / this.#listOfNumbers.length)
+    return this.#calculator.calculateMeanValue(this.#listOfNumbers)
   }
 
-  getMedianValue() {
-
-  } */
+  /**
+   * Get median value of collection.
+   *
+   * @returns {number} - The median value.
+   * @throws {Error} - If collection is empty.
+   */
+  getMedianValue () {
+    return 0
+  }
 
   /**
    * Erase all items inside the collection.
