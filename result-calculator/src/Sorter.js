@@ -25,8 +25,7 @@ export class Sorter {
         break
 
       default:
-        // Do nothing with copy.
-        break
+        return copy
     }
 
     return copy

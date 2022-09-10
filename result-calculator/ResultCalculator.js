@@ -1,5 +1,6 @@
 import { Calculator } from './src/Calculator.js'
 import { ErrorHandler } from './src/ErrorHandler.js'
+import { Sorter } from './src/Sorter.js'
 
 /**
  * Module for type ResultCalculator.
@@ -10,6 +11,7 @@ export class ResultCalculator {
   #listOfNumbers = []
   #calculator
   #errorHandler
+  #sorter
 
   /**
    * Constructor for ResultCalculator.
@@ -17,6 +19,7 @@ export class ResultCalculator {
   constructor () {
     this.#calculator = new Calculator()
     this.#errorHandler = new ErrorHandler()
+    this.#sorter = new Sorter()
   }
 
   /**
@@ -33,11 +36,17 @@ export class ResultCalculator {
   /**
    * Get all numbers in the collection.
    *
+   * @param {number} [sort=0] - Sort type. 0 as default.
+   * << 0: default value, no sorting, 1: ascending order, 2: descending order >>
    * @returns {number[]} - The numbers in the collection.
    */
-  getAllNumbers () {
-    const copy = []
+  getAllNumbers (sort = 0) {
+    let copy = []
     this.#listOfNumbers.map((number) => copy.push(number))
+
+    if (sort !== 0) {
+      copy = this.#sorter.sortArray(sort)
+    }
 
     return copy
   }
