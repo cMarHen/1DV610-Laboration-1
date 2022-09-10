@@ -1,9 +1,20 @@
 // A class specific for calculations.
 
+import { Sorter } from './Sorter.js'
+
 /**
  *
  */
 export class Calculator {
+  #sorter
+
+  /**
+   * Constructor for Calculator.
+   */
+  constructor () {
+    this.#sorter = new Sorter()
+  }
+
   /**
    * Calculate highest number in an array.
    *
@@ -53,5 +64,24 @@ export class Calculator {
     }
 
     return (totalValue / arr.length)
+  }
+
+  /**
+   * Calculate the median value of an array.
+   *
+   * @param {number[]} arr - Array of numbers.
+   * @returns {number} - The median value.
+   */
+  calculateMedianValue (arr) {
+    const sortedArray = this.#sorter.sortArray([...arr], 1)
+
+    let median = 0
+    if (sortedArray.length % 2 === 0) {
+      median = (sortedArray[(sortedArray.length) / 2 - 1] + sortedArray[(sortedArray.length) / 2]) / 2
+    } else {
+      median = sortedArray[(sortedArray.length - 1) / 2]
+    }
+
+    return median
   }
 }

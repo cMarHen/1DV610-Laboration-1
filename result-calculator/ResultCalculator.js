@@ -94,7 +94,9 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMedianValue () {
-    return 0
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+
+    return this.#calculator.calculateMedianValue(this.#listOfNumbers)
   }
 
   /**
@@ -103,11 +105,4 @@ export class ResultCalculator {
   emptyNumberCollection () {
     this.#listOfNumbers = []
   }
-
-  /* #getSortedNumbersAscending(arr) {
-    const arrCopy = [...arr]
-    return arrCopy.sort(value, index => value - index)
-  }
-
-  #iterator() {} */
 }
