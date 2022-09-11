@@ -84,4 +84,28 @@ export class Calculator {
 
     return median
   }
+
+  calculateModeValue() {
+
+  }
+
+  /**
+   * Calculate frequency of an array of numbers.
+   *
+   * @param {number[]} arr - The array to calculate.
+   * @returns {object} - The frequency with the numbers as property and frequency as value.
+   */
+  #calculateFrequency (arr) {
+    const frequency = {}
+
+    for (const number of arr) {
+      if (frequency[number]) {
+        frequency[number]++
+      } else {
+        frequency[number] = 1
+      }
+    }
+
+    return frequency
+  }
 }

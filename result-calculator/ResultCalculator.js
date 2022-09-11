@@ -102,10 +102,12 @@ export class ResultCalculator {
   /**
    * Get the most frequent value from the collection.
    *
-   * @returns {number} - The mode value.
+   * @returns {number[]} - The mode value.
    */
   getModeValue () {
-    return 0
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+
+    return [0]
   }
 
   /**
