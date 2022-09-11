@@ -95,7 +95,7 @@ export class Calculator {
    * @param {number[]} arr - The array to calculate.
    * @returns {object} - The frequency with the numbers as property and frequency as value.
    */
-  #calculateFrequency (arr) {
+  calculateFrequency (arr) {
     const frequency = {}
 
     for (const number of arr) {
