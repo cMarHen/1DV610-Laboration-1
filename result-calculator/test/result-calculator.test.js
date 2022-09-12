@@ -71,17 +71,49 @@ describe('ResultCalculator', () => {
     })
 
     test('Erased number collection should return an empty array when reading it.', () => {
-      calculator.emptyNumberCollection()
+      calculator.eraseCollectionData()
 
       expect(calculator.getAllNumbers()).toEqual([])
     })
   })
 
-  describe('Calculate as static methods', () => {
+  describe('Read normal distribution', () => {
+    test('ND', () => {
+      const calculator = new ResultCalculator()
+      const numbersToUse = [1, 1, 1, 1, 1, 1, 1, 1]
+
+      numbersToUse.map((number) => calculator.setNumberToCollection(number))
+
+      const testData = calculator.getNormalDistribution()
+
+      expect(testData.mean).toBe(1)
+      expect(testData.stdDeviation).toBe(0)
+      expect(testData.marginOfError).toBe(0)
+      expect(testData.confidenceInterval.upperBound).toBe(1)
+      expect(testData.confidenceInterval.lowerBound).toBe(1)
+    })
+
+    test('ND', () => {
+      const calculator = new ResultCalculator()
+      const numbersToUse = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5]
+
+      numbersToUse.map((number) => calculator.setNumberToCollection(number))
+
+      const testData = calculator.getNormalDistribution()
+
+      expect(testData.mean).toBeCloseTo(3)
+      expect(testData.stdDeviation).toBeCloseTo(1.297)
+      expect(testData.marginOfError).toBeCloseTo(0.583)
+      expect(testData.confidenceInterval.upperBound).toBeCloseTo(3.583)
+      expect(testData.confidenceInterval.lowerBound).toBeCloseTo(2.416)
+    })
+  })
+
+  /* describe('Calculate as static methods', () => {
     const calculator = new ResultCalculator()
 
     test('Calculate margin of error should return 3.0 ', () => {
-      expect(calculator.calculateMarginOfError(40, 1000)).toBe(3.0)
+      expect(calculator.calculateMarginOfError(40, 1000)).toBeCloseTo(3.0)
     })
-  })
+  }) */
 })

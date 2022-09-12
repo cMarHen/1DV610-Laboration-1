@@ -126,8 +126,8 @@ export class ResultCalculator {
    *
    * @returns {object} - Data representing the normal distribution.
    */
-  getStdNormalDistribution () {
-    return {}
+  getNormalDistribution () {
+    return this.#calculator.summarizeNormalDistributionData(this.#listOfNumbers)
   }
 
   /**
@@ -153,7 +153,7 @@ export class ResultCalculator {
   /**
    * Erase all items inside the collection.
    */
-  emptyNumberCollection () {
+  eraseCollectionData () {
     this.#listOfNumbers = []
   }
 }

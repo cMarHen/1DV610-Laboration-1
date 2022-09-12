@@ -139,4 +139,65 @@ export class Calculator {
 
     return frequency
   }
+
+  /**
+   * Summarize a normal distribution object by frequency in a list of numbers.
+   *
+   * @param {number[]} arr - List of numbers
+   * @returns {object} - A set of information to be used as normal distribution.
+   */
+  summarizeNormalDistributionData (arr) {
+    const mean = this.calculateMeanValue(arr)
+    const stdDeviation = this.calculateStandardDeviation(arr)
+    const standardError = this.#calculateStandardError(arr, stdDeviation)
+    const marginOfError = this.#calculateMarginOfError(standardError)
+    const confidenceInterval = this.#calculateConfidenceInterval(mean, marginOfError)
+
+    return {
+      mean,
+      stdDeviation,
+      standardError,
+      marginOfError,
+      confidenceInterval/*,
+      {
+        frequencytable
+      } */
+    }
+  }
+
+  /**
+   * Calculate margin of error. Will use a confidence level on 95% with a z-score of 1.96.
+   *
+   * @param {number} standardError - Standard error to be used.
+   * @returns {number} - Margin of error.
+   */
+  #calculateMarginOfError (standardError) {
+    return 1.96 * standardError
+  }
+
+  /**
+   * Calculates the confidence interval based on a margin of error.
+   *
+   * @param {number} mean - Mean to be used.
+   * @param {number} marginOfError - Margin of error to be used.
+   * @returns {object} - Represent the confidence interval.
+   * @memberof Calculator
+   */
+  #calculateConfidenceInterval (mean, marginOfError) {
+    return {
+      upperBound: mean + marginOfError,
+      lowerBound: mean - marginOfError
+    }
+  }
+
+  /**
+   * Calculates standard error based on frequency in a list of numbers.
+   *
+   * @param {number[]} arr - The array to calculate.
+   * @param {number} stdDev -
+   * @returns {number} - Standard error.
+   */
+  #calculateStandardError (arr, stdDev) {
+    return stdDev / Math.sqrt(arr.length)
+  }
 }

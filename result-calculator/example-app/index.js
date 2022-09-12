@@ -1,16 +1,25 @@
 
+import { ResultCalculator } from '../ResultCalculator.js'
 import { App } from './src/App.js'
-/* import { ReadLine } from './src/ReadLine.js';
+/* import { ReadLine } from './src/ReadLine.js'; */
 
-const NUMBERS = [42, 21, 534, 23, 32, 11, 21]
+/* const NUMBERS = [42, 21, 534, 23, 32, 11, 21]
 const FLOAT_NUMBERS = [42.242, 21.2311, 534.1635, 23.3246, 32.854, 11.634, 21.723]
-
-const calc = new ResultCalculator() */
+ */
+/* const calc = new ResultCalculator() */
 // const readline = new ReadLine()
 
 try {
-  const app = new App()
-  app.main()
+  /*  const app = new App()
+  app.main() */
+
+  /* const calculator = new ResultCalculator()
+
+  NUMBERS.map((n) => calculator.setNumberToCollection(n))
+
+  console.log(calculator.getMeanValue())
+
+  console.log(calculator.getNormalDistribution()) */
 
 /*   while (true) {
     const userInput = await readline.questionUser('What do you want to do?')
