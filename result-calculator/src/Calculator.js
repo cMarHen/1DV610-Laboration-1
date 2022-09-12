@@ -85,7 +85,10 @@ export class Calculator {
     return median
   }
 
-  calculateModeValue() {
+  /**
+   * C.
+   */
+  calculateModeValue () {
 
   }
 
