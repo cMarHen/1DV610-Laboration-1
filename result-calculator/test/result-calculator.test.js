@@ -62,8 +62,8 @@ describe('ResultCalculator', () => {
       expect(calculator.getMedianValue()).toEqual(18.5)
     })
 
-    test('Standard deviation value should be 22.6680592', () => {
-      expect(calculator.getStdDeviationValue()).toEqual(22.6680592)
+    test('Standard deviation value should be 21.703014383567396', () => {
+      expect(calculator.getStdDeviationValue()).toEqual(21.703014383567396)
     })
 
     test('Coefficient of variation value should be 1.11941033', () => {

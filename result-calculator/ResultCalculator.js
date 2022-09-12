@@ -116,7 +116,9 @@ export class ResultCalculator {
    * @returns {number} - The standard deviation value.
    */
   getStdDeviationValue () {
-    return 0
+    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+
+    return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
   }
 
   /**

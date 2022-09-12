@@ -102,6 +102,25 @@ export class Calculator {
   }
 
   /**
+   * Calculate standard deviation of an array of numbers.
+   *
+   * @param {number[]} arr - The array to calculate.
+   * @returns {number} - The standard deviation of a set of numbers.
+   * @memberof Calculator
+   */
+  calculateStandardDeviation (arr) {
+    const mean = this.calculateMeanValue([...arr])
+
+    let sum = 0
+
+    for (const number of arr) {
+      sum += Math.pow(number - mean, 2)
+    }
+
+    return Math.sqrt(sum / (arr.length))
+  }
+
+  /**
    * Calculate frequency of an array of numbers.
    *
    * @param {number[]} arr - The array to calculate.
