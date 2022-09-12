@@ -86,10 +86,19 @@ export class Calculator {
   }
 
   /**
-   * C.
+   * Calculate mode value of an array of numbers.
+   *
+   * @param {number[]} arr - The array to calculate.
+   * @returns {number[]} - An array of one or more numbers.
    */
-  calculateModeValue () {
+  calculateModeValue (arr) {
+    const frequencyObject = this.calculateFrequency([...arr])
 
+    const maxFrequency = this.#sorter.sortObject(frequencyObject).pop()
+
+    return Object.keys(frequencyObject)
+      .filter((number) => frequencyObject[number] === maxFrequency)
+      .map(Number)
   }
 
   /**

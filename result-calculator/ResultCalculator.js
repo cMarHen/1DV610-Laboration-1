@@ -107,7 +107,7 @@ export class ResultCalculator {
   getModeValue () {
     this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
 
-    return [0]
+    return this.#calculator.calculateModeValue(this.#listOfNumbers)
   }
 
   /**

@@ -54,6 +54,10 @@ describe('ResultCalculator', () => {
       expect(calculator.getMeanValue()).toEqual(20.25)
     })
 
+    test('Mode value should be 42', () => {
+      expect(calculator.getModeValue()).toEqual([42])
+    })
+
     test('Median value should be 31.5', () => {
       expect(calculator.getMedianValue()).toEqual(18.5)
     })
