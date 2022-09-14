@@ -68,7 +68,7 @@ describe('ResultCalculator', () => {
     })
 
     test('Standard deviation value should be close to 21.7030', () => {
-      expect(calculator.getStdDeviationValue()).toBeCloseTo(21.7030)
+      expect(calculator.getStandardDeviationValue()).toBeCloseTo(21.7030)
     })
 
     test('Coefficient of variation value should be close to 1.0717', () => {

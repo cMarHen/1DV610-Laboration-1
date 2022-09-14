@@ -73,7 +73,8 @@ export class Calculator {
    * @returns {number} - The median value.
    */
   calculateMedianValue (arr) {
-    const sortedArray = this.#sorter.sortArray([...arr], 1)
+    // const sortedArray = this.#sorter.sortArray([...arr], 1)
+    const sortedArray = this.#sorter.sortArrayDescending([...arr])
 
     let median = 0
     if (sortedArray.length % 2 === 0) {

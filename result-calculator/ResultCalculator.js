@@ -1,6 +1,5 @@
 import { Calculator } from './src/Calculator.js'
 import { ErrorHandler } from './src/ErrorHandler.js'
-import { Sorter } from './src/Sorter.js'
 
 /**
  * Module for type ResultCalculator.
@@ -11,7 +10,6 @@ export class ResultCalculator {
   #listOfNumbers = []
   #calculator
   #errorHandler
-  #sorter
 
   /**
    * Constructor for ResultCalculator.
@@ -19,7 +17,6 @@ export class ResultCalculator {
   constructor () {
     this.#calculator = new Calculator()
     this.#errorHandler = new ErrorHandler()
-    this.#sorter = new Sorter()
   }
 
   /**
@@ -111,7 +108,7 @@ export class ResultCalculator {
    * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The standard deviation value.
    */
-  getStdDeviationValue () {
+  getStandardDeviationValue () {
     this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
