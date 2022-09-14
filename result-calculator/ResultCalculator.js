@@ -29,7 +29,7 @@ export class ResultCalculator {
    * @throws {TypeError}
    */
   setNumberToCollection (number) {
-    this.#errorHandler.errCheckForType(number, 'number')
+    this.#errorHandler.errCheckForTypeNumber(number)
     this.#listOfNumbers.push(number)
   }
 
@@ -52,7 +52,7 @@ export class ResultCalculator {
    * @returns {number} - The highest number in the collection.
    */
   getHighestNumber () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
   }
@@ -64,7 +64,7 @@ export class ResultCalculator {
    * @returns {number} - The lowest number in the collection.
    */
   getLowestNumber () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }
@@ -76,7 +76,7 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMeanValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateMeanValue(this.#listOfNumbers)
   }
@@ -88,7 +88,7 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMedianValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateMedianValue(this.#listOfNumbers)
   }
@@ -99,7 +99,7 @@ export class ResultCalculator {
    * @returns {number[]} - The mode value.
    */
   getModeValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateModeValue(this.#listOfNumbers)
   }
@@ -110,7 +110,7 @@ export class ResultCalculator {
    * @returns {number} - The standard deviation value.
    */
   getStdDeviationValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
     return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
   }
