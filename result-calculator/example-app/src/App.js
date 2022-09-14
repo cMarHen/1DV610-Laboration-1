@@ -1,4 +1,4 @@
-import { ResultCalculator } from "../../result-calculator/ResultCalculator.js"
+import { ResultCalculator } from "../../ResultCalculator.js"
 import { ReadLine } from "./ReadLine.js"
 import { UserInterfaceText } from "./UserInterfaceText.js"
 
@@ -27,7 +27,7 @@ export class App {
     do {
       this.#printMainMenu()
       userInput = await this.#readLine.questionUserForNumber('Please choose an option from the menu: \n')
-      
+
       await this.#mainMenu(userInput)
     } while (userInput >= 1 && userInput <= 4);
 
