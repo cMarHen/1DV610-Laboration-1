@@ -10,6 +10,11 @@ describe('ResultCalculator', () => {
       expect(() => calculator.setNumberToCollection('1')).toThrow(Error)
     })
 
+    test('Add a Nan, should throw an Error', () => {
+      const calculator = new ResultCalculator()
+      expect(() => calculator.setNumberToCollection(NaN)).toThrow(Error)
+    })
+
     test('Add string of characters, should throw an Error', () => {
       const calculator = new ResultCalculator()
       expect(() => calculator.setNumberToCollection('test')).toThrow(Error)
@@ -78,7 +83,7 @@ describe('ResultCalculator', () => {
   })
 
   describe('Read normal distribution', () => {
-    test('ND', () => {
+    test('Normal distribution', () => {
       const calculator = new ResultCalculator()
       const numbersToUse = [1, 1, 1, 1, 1, 1, 1, 1]
 
@@ -93,7 +98,7 @@ describe('ResultCalculator', () => {
       expect(testData.confidenceInterval.lowerBound).toBe(1)
     })
 
-    test('ND', () => {
+    test('Normal distribution', () => {
       const calculator = new ResultCalculator()
       const numbersToUse = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5]
 
