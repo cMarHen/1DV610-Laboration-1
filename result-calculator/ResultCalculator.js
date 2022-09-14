@@ -36,17 +36,11 @@ export class ResultCalculator {
   /**
    * Get all numbers in the collection.
    *
-   * @param {number} [sort=0] - Sort type. 0 as default.
-   * << 0: default value, no sorting, 1: ascending order, 2: descending order >>
    * @returns {number[]} - The numbers in the collection.
    */
-  getAllNumbers (sort = 0) {
-    let copy = []
+  getAllNumbers () {
+    const copy = []
     this.#listOfNumbers.map((number) => copy.push(number))
-
-    if (sort !== 0) {
-      copy = this.#sorter.sortArray(sort)
-    }
 
     return copy
   }
