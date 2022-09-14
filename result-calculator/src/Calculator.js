@@ -1,5 +1,3 @@
-// A class specific for calculations.
-
 import { Sorter } from './Sorter.js'
 
 /**
@@ -73,14 +71,15 @@ export class Calculator {
    * @returns {number} - The median value.
    */
   calculateMedianValue (arr) {
-    // const sortedArray = this.#sorter.sortArray([...arr], 1)
-    const sortedArray = this.#sorter.sortArrayDescending([...arr])
+    const sortedList = this.#sorter.sortArrayDescending([...arr])
 
     let median = 0
-    if (sortedArray.length % 2 === 0) {
-      median = (sortedArray[(sortedArray.length) / 2 - 1] + sortedArray[(sortedArray.length) / 2]) / 2
+
+    // Calculation method differs if amount of numbers are even or not.
+    if (sortedList.length % 2 === 0) {
+      median = (sortedList[(sortedList.length) / 2 - 1] + sortedList[(sortedList.length) / 2]) / 2
     } else {
-      median = sortedArray[(sortedArray.length - 1) / 2]
+      median = sortedList[(sortedList.length - 1) / 2]
     }
 
     return median
@@ -90,16 +89,18 @@ export class Calculator {
    * Calculate mode value of an array of numbers.
    *
    * @param {number[]} arr - The array to calculate.
-   * @returns {number[]} - An array of one or more numbers.
+   * @returns {number[]} - An array with one or more numbers as mode.
    */
   calculateModeValue (arr) {
     const frequencyObject = this.calculateFrequency([...arr])
 
     const maxFrequency = this.#sorter.sortObject(frequencyObject).pop()
 
-    return Object.keys(frequencyObject)
+    const numberWithTheHighestFrequency = Object.keys(frequencyObject)
       .filter((number) => frequencyObject[number] === maxFrequency)
       .map(Number)
+
+    return numberWithTheHighestFrequency
   }
 
   /**
