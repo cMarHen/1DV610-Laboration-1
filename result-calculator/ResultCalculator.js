@@ -96,6 +96,7 @@ export class ResultCalculator {
   /**
    * Get the most frequent value from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number[]} - The mode value.
    */
   getModeValue () {
@@ -107,6 +108,7 @@ export class ResultCalculator {
   /**
    * Get the standard deviation value from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The standard deviation value.
    */
   getStdDeviationValue () {
@@ -118,30 +120,25 @@ export class ResultCalculator {
   /**
    * Get standard normal distribution from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {object} - Data representing the normal distribution.
    */
   getNormalDistribution () {
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
+
     return this.#calculator.summarizeNormalDistributionData(this.#listOfNumbers)
   }
 
   /**
    * Get the variation coefficient of the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The variation coefficient of collection.
    */
   getCoefficientOfVariationValue () {
-    return 0
-  }
+    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
 
-  /**
-   * Calculate a margin of error to get a confidence interval.
-   *
-   * @param {number} percent - Percent of a quantity.
-   * @param {number} quantity - Total quantity.
-   * @returns {number} - The calculated margin of error.
-   */
-  calculateMarginOfError (percent, quantity) {
-    return 0
+    return this.#calculator.calculateCoefficientOfVariation(this.#listOfNumbers)
   }
 
   /**

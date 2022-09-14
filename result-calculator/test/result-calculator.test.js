@@ -36,7 +36,7 @@ describe('ResultCalculator', () => {
     })
   })
 
-  describe('Read numbers', () => {
+  describe('Read calculated data', () => {
     const calculator = new ResultCalculator()
 
     // Inject data to collection
@@ -67,12 +67,12 @@ describe('ResultCalculator', () => {
       expect(calculator.getMedianValue()).toEqual(18.5)
     })
 
-    test('Standard deviation value should be 21.703014383567396', () => {
-      expect(calculator.getStdDeviationValue()).toEqual(21.703014383567396)
+    test('Standard deviation value should be close to 21.7030', () => {
+      expect(calculator.getStdDeviationValue()).toBeCloseTo(21.7030)
     })
 
-    test('Coefficient of variation value should be 1.11941033', () => {
-      expect(calculator.getCoefficientOfVariationValue()).toEqual(1.11941033)
+    test('Coefficient of variation value should be close to 1.0717', () => {
+      expect(calculator.getCoefficientOfVariationValue()).toBeCloseTo(1.0717)
     })
 
     test('Erased number collection should return an empty array when reading it.', () => {
@@ -111,14 +111,7 @@ describe('ResultCalculator', () => {
       expect(testData.marginOfError).toBeCloseTo(0.583)
       expect(testData.confidenceInterval.upperBound).toBeCloseTo(3.583)
       expect(testData.confidenceInterval.lowerBound).toBeCloseTo(2.416)
+      expect(testData.frequencyTable).toEqual({ 1: 3, 2: 4, 3: 5, 4: 4, 5: 3 })
     })
   })
-
-  /* describe('Calculate as static methods', () => {
-    const calculator = new ResultCalculator()
-
-    test('Calculate margin of error should return 3.0 ', () => {
-      expect(calculator.calculateMarginOfError(40, 1000)).toBeCloseTo(3.0)
-    })
-  }) */
 })

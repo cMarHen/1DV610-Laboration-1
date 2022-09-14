@@ -152,17 +152,28 @@ export class Calculator {
     const standardError = this.#calculateStandardError(arr, stdDeviation)
     const marginOfError = this.#calculateMarginOfError(standardError)
     const confidenceInterval = this.#calculateConfidenceInterval(mean, marginOfError)
-
+    const frequencyTable = this.calculateFrequency(arr)
     return {
       mean,
       stdDeviation,
       standardError,
       marginOfError,
-      confidenceInterval/*,
-      {
-        frequencytable
-      } */
+      confidenceInterval,
+      frequencyTable
     }
+  }
+
+  /**
+   * Calculate coefficient of variation.
+   *
+   * @param {number[]} arr - The array to analyze.
+   * @returns {number} - The coefficient of variation as in percent.
+   */
+  calculateCoefficientOfVariation (arr) {
+    const mean = this.calculateMeanValue([...arr])
+    const stdDev = this.calculateStandardDeviation([...arr])
+
+    return stdDev / mean
   }
 
   /**
