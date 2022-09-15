@@ -8,7 +8,7 @@ Jag har använt mig av ett namngivningssystem där jag namnger metoder efter vad
 - Undvika sidoeffekter (s.44)
 - Använda en abstraktionsnivå per funktion (s.36)
 - Switch längst ner i koden.
--
+- Glömde först bort att använda issues, skrev istället ner enhetstester för saker jag ville göra.
 
 ## Namngivningsreflektioner
 
