@@ -49,8 +49,6 @@ export class ResultCalculator {
    * @returns {number} - The highest number in the collection.
    */
   getHighestNumber () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
   }
 
@@ -61,8 +59,6 @@ export class ResultCalculator {
    * @returns {number} - The lowest number in the collection.
    */
   getLowestNumber () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }
 
@@ -73,8 +69,6 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMeanValue () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateMeanValue(this.#listOfNumbers)
   }
 
@@ -85,8 +79,6 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMedianValue () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateMedianValue(this.#listOfNumbers)
   }
 
@@ -97,8 +89,6 @@ export class ResultCalculator {
    * @returns {number[]} - The mode value.
    */
   getModeValue () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateModeValue(this.#listOfNumbers)
   }
 
@@ -109,8 +99,6 @@ export class ResultCalculator {
    * @returns {number} - The standard deviation value.
    */
   getStandardDeviationValue () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
   }
 
@@ -121,8 +109,6 @@ export class ResultCalculator {
    * @returns {object} - Data representing the normal distribution.
    */
   getNormalDistribution () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.summarizeNormalDistributionData(this.#listOfNumbers)
   }
 
@@ -133,8 +119,6 @@ export class ResultCalculator {
    * @returns {number} - The variation coefficient of collection.
    */
   getCoefficientOfVariationValue () {
-    this.#errorHandler.errCheckIfArrayIsEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateCoefficientOfVariation(this.#listOfNumbers)
   }
 

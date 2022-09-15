@@ -7,36 +7,32 @@ describe('Calculator', () => {
     // Inject data to collection
     const numbersToUseInTest = [-21, -3, 2, 10, 15, 16, 21, 32, 42, 42, 63, 24]
 
-    test('Read all numbers from collection, should return an array', () => {
-      expect(calculator.getAllNumbers()).toEqual(numbersToUseInTest)
-    })
-
     test('Calculate Highest number should be 534', () => {
-      expect(calculator.getHighestNumber()).toEqual(63)
+      expect(calculator.calculateHighestNumber(numbersToUseInTest)).toEqual(63)
     })
 
     test('Calculate Lowest number should be -21', () => {
-      expect(calculator.getLowestNumber()).toEqual(-21)
+      expect(calculator.calculateLowestNumber(numbersToUseInTest)).toEqual(-21)
     })
 
     test('Calculate Mean value should be 144', () => {
-      expect(calculator.getMeanValue()).toEqual(20.25)
+      expect(calculator.calculateMeanValue(numbersToUseInTest)).toEqual(20.25)
     })
 
     test('Calculate Mode value should be 42', () => {
-      expect(calculator.getModeValue()).toEqual([42])
+      expect(calculator.calculateModeValue(numbersToUseInTest)).toEqual([42])
     })
 
     test('Calculate Median value should be 31.5', () => {
-      expect(calculator.getMedianValue()).toEqual(18.5)
+      expect(calculator.calculateMedianValue(numbersToUseInTest)).toEqual(18.5)
     })
 
     test('Calculate Standard deviation value should be close to 21.7030', () => {
-      expect(calculator.getStandardDeviationValue()).toBeCloseTo(21.7030)
+      expect(calculator.calculateStandardDeviation(numbersToUseInTest)).toBeCloseTo(21.7030)
     })
 
     test('Calculate Coefficient of variation value should be close to 1.0717', () => {
-      expect(calculator.getCoefficientOfVariationValue()).toBeCloseTo(1.0717)
+      expect(calculator.calculateCoefficientOfVariation(numbersToUseInTest)).toBeCloseTo(1.0717)
     })
   })
 
