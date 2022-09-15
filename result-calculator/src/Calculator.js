@@ -75,7 +75,7 @@ export class Calculator {
 
     let median = 0
 
-    // Calculation method differs if amount of numbers are even or not.
+    // Calculation method differs if amount of numbers are even.
     if (sortedList.length % 2 === 0) {
       median = (sortedList[(sortedList.length) / 2 - 1] + sortedList[(sortedList.length) / 2]) / 2
     } else {

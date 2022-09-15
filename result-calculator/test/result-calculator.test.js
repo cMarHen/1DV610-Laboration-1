@@ -1,8 +1,5 @@
 import { ResultCalculator } from '../ResultCalculator.js'
 
-// const numbersToUseInTest = [42, 21, 534, 23, 32, 11, 21]
-// numbersToUseInTest.map((number) => calculator.setNumberToCollection(number))
-
 describe('ResultCalculator', () => {
   describe('Add data to collection', () => {
     test('Add number as string, should throw an Error', () => {
@@ -47,32 +44,8 @@ describe('ResultCalculator', () => {
       expect(calculator.getAllNumbers()).toEqual(numbersToUseInTest)
     })
 
-    test('Highest number should be 534', () => {
-      expect(calculator.getHighestNumber()).toEqual(63)
-    })
-
-    test('Lowest number should be -21', () => {
-      expect(calculator.getLowestNumber()).toEqual(-21)
-    })
-
     test('Mean value should be 144', () => {
       expect(calculator.getMeanValue()).toEqual(20.25)
-    })
-
-    test('Mode value should be 42', () => {
-      expect(calculator.getModeValue()).toEqual([42])
-    })
-
-    test('Median value should be 31.5', () => {
-      expect(calculator.getMedianValue()).toEqual(18.5)
-    })
-
-    test('Standard deviation value should be close to 21.7030', () => {
-      expect(calculator.getStandardDeviationValue()).toBeCloseTo(21.7030)
-    })
-
-    test('Coefficient of variation value should be close to 1.0717', () => {
-      expect(calculator.getCoefficientOfVariationValue()).toBeCloseTo(1.0717)
     })
 
     test('Erased number collection should return an empty array when reading it.', () => {
@@ -83,21 +56,6 @@ describe('ResultCalculator', () => {
   })
 
   describe('Read normal distribution', () => {
-    test('Normal distribution', () => {
-      const calculator = new ResultCalculator()
-      const numbersToUse = [1, 1, 1, 1, 1, 1, 1, 1]
-
-      numbersToUse.map((number) => calculator.setNumberToCollection(number))
-
-      const testData = calculator.getNormalDistribution()
-
-      expect(testData.mean).toBe(1)
-      expect(testData.stdDeviation).toBe(0)
-      expect(testData.marginOfError).toBe(0)
-      expect(testData.confidenceInterval.upperBound).toBe(1)
-      expect(testData.confidenceInterval.lowerBound).toBe(1)
-    })
-
     test('Normal distribution', () => {
       const calculator = new ResultCalculator()
       const numbersToUse = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5]
