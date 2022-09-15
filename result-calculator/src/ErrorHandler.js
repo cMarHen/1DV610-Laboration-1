@@ -3,13 +3,13 @@
  */
 export class ErrorHandler {
   /**
-   * Checks for type error.
+   * Controlls if a data is of type number.
    *
    * @param {number} dataToCheck - The data to check for error.
    * @throws {TypeError}
    */
-  errCheckForType (dataToCheck) {
-    if (typeof dataToCheck !== 'number') {
+  errCheckForTypeNumber (dataToCheck) {
+    if (typeof dataToCheck !== 'number' || isNaN(dataToCheck)) {
       throw new TypeError(`ERROR: ${dataToCheck} is not of type number.`)
     }
   }
@@ -20,7 +20,7 @@ export class ErrorHandler {
    * @param {Array} arr - The array to check.
    * @throws {Error}
    */
-  errCheckIfEmpty (arr) {
+  errCheckIfArrayIsEmpty (arr) {
     if (!arr.length) {
       throw new Error('The array is empty.')
     }

@@ -1,5 +1,4 @@
-// A class specific for calculations.
-
+import { ErrorHandler } from './ErrorHandler.js'
 import { Sorter } from './Sorter.js'
 
 /**
@@ -7,12 +6,14 @@ import { Sorter } from './Sorter.js'
  */
 export class Calculator {
   #sorter
+  #errorHandler
 
   /**
    * Constructor for Calculator.
    */
   constructor () {
     this.#sorter = new Sorter()
+    this.#errorHandler = new ErrorHandler()
   }
 
   /**
@@ -22,14 +23,14 @@ export class Calculator {
    * @returns {number} - The highest number.
    */
   calculateHighestNumber (arr) {
-    let highestNumber = arr[0]
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
+    let highestNumber = arr[0]
     for (const number of arr) {
       if (number > highestNumber) {
         highestNumber = number
       }
     }
-
     return highestNumber
   }
 
@@ -40,14 +41,14 @@ export class Calculator {
    * @returns {number} - The lowest number.
    */
   calculateLowestNumber (arr) {
-    let lowestNumber = arr[0]
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
+    let lowestNumber = arr[0]
     for (const number of arr) {
       if (number < lowestNumber) {
         lowestNumber = number
       }
     }
-
     return lowestNumber
   }
 
@@ -58,6 +59,8 @@ export class Calculator {
    * @returns {number} - The mean value.
    */
   calculateMeanValue (arr) {
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
+
     let totalValue = 0
     for (const number of arr) {
       totalValue += number
@@ -73,15 +76,16 @@ export class Calculator {
    * @returns {number} - The median value.
    */
   calculateMedianValue (arr) {
-    const sortedArray = this.#sorter.sortArray([...arr], 1)
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
+    const sortedList = this.#sorter.sortArrayDescending([...arr])
 
     let median = 0
-    if (sortedArray.length % 2 === 0) {
-      median = (sortedArray[(sortedArray.length) / 2 - 1] + sortedArray[(sortedArray.length) / 2]) / 2
+    // Calculation method differs if amount of numbers are even.
+    if (sortedList.length % 2 === 0) {
+      median = (sortedList[(sortedList.length) / 2 - 1] + sortedList[(sortedList.length) / 2]) / 2
     } else {
-      median = sortedArray[(sortedArray.length - 1) / 2]
+      median = sortedList[(sortedList.length - 1) / 2]
     }
-
     return median
   }
 
@@ -89,16 +93,19 @@ export class Calculator {
    * Calculate mode value of an array of numbers.
    *
    * @param {number[]} arr - The array to calculate.
-   * @returns {number[]} - An array of one or more numbers.
+   * @returns {number[]} - An array with one or more numbers as mode.
    */
   calculateModeValue (arr) {
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
     const frequencyObject = this.calculateFrequency([...arr])
 
     const maxFrequency = this.#sorter.sortObject(frequencyObject).pop()
 
-    return Object.keys(frequencyObject)
+    const numberWithTheHighestFrequency = Object.keys(frequencyObject)
       .filter((number) => frequencyObject[number] === maxFrequency)
       .map(Number)
+
+    return numberWithTheHighestFrequency
   }
 
   /**
@@ -109,14 +116,13 @@ export class Calculator {
    * @memberof Calculator
    */
   calculateStandardDeviation (arr) {
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
     const mean = this.calculateMeanValue([...arr])
 
     let sum = 0
-
     for (const number of arr) {
       sum += Math.pow(number - mean, 2)
     }
-
     return Math.sqrt(sum / (arr.length))
   }
 
@@ -127,8 +133,9 @@ export class Calculator {
    * @returns {object} - The frequency with the numbers as property and frequency as value.
    */
   calculateFrequency (arr) {
-    const frequency = {}
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
+    const frequency = {}
     for (const number of arr) {
       if (frequency[number]) {
         frequency[number]++
@@ -136,7 +143,6 @@ export class Calculator {
         frequency[number] = 1
       }
     }
-
     return frequency
   }
 
@@ -147,22 +153,37 @@ export class Calculator {
    * @returns {object} - A set of information to be used as normal distribution.
    */
   summarizeNormalDistributionData (arr) {
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
+
     const mean = this.calculateMeanValue(arr)
     const stdDeviation = this.calculateStandardDeviation(arr)
     const standardError = this.#calculateStandardError(arr, stdDeviation)
     const marginOfError = this.#calculateMarginOfError(standardError)
     const confidenceInterval = this.#calculateConfidenceInterval(mean, marginOfError)
-
+    const frequencyTable = this.calculateFrequency(arr)
     return {
       mean,
       stdDeviation,
       standardError,
       marginOfError,
-      confidenceInterval/*,
-      {
-        frequencytable
-      } */
+      confidenceInterval,
+      frequencyTable
     }
+  }
+
+  /**
+   * Calculate coefficient of variation.
+   *
+   * @param {number[]} arr - The array to analyze.
+   * @returns {number} - The coefficient of variation as in percent.
+   */
+  calculateCoefficientOfVariation (arr) {
+    this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
+
+    const mean = this.calculateMeanValue([...arr])
+    const stdDev = this.calculateStandardDeviation([...arr])
+
+    return stdDev / mean
   }
 
   /**

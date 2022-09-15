@@ -1,6 +1,5 @@
 import { Calculator } from './src/Calculator.js'
 import { ErrorHandler } from './src/ErrorHandler.js'
-import { Sorter } from './src/Sorter.js'
 
 /**
  * Module for type ResultCalculator.
@@ -11,7 +10,6 @@ export class ResultCalculator {
   #listOfNumbers = []
   #calculator
   #errorHandler
-  #sorter
 
   /**
    * Constructor for ResultCalculator.
@@ -19,7 +17,6 @@ export class ResultCalculator {
   constructor () {
     this.#calculator = new Calculator()
     this.#errorHandler = new ErrorHandler()
-    this.#sorter = new Sorter()
   }
 
   /**
@@ -29,24 +26,18 @@ export class ResultCalculator {
    * @throws {TypeError}
    */
   setNumberToCollection (number) {
-    this.#errorHandler.errCheckForType(number, 'number')
+    this.#errorHandler.errCheckForTypeNumber(number)
     this.#listOfNumbers.push(number)
   }
 
   /**
    * Get all numbers in the collection.
    *
-   * @param {number} [sort=0] - Sort type. 0 as default.
-   * << 0: default value, no sorting, 1: ascending order, 2: descending order >>
    * @returns {number[]} - The numbers in the collection.
    */
-  getAllNumbers (sort = 0) {
-    let copy = []
+  getAllNumbers () {
+    const copy = []
     this.#listOfNumbers.map((number) => copy.push(number))
-
-    if (sort !== 0) {
-      copy = this.#sorter.sortArray(sort)
-    }
 
     return copy
   }
@@ -58,8 +49,6 @@ export class ResultCalculator {
    * @returns {number} - The highest number in the collection.
    */
   getHighestNumber () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
   }
 
@@ -70,8 +59,6 @@ export class ResultCalculator {
    * @returns {number} - The lowest number in the collection.
    */
   getLowestNumber () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
   }
 
@@ -82,8 +69,6 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMeanValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateMeanValue(this.#listOfNumbers)
   }
 
@@ -94,36 +79,33 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMedianValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateMedianValue(this.#listOfNumbers)
   }
 
   /**
    * Get the most frequent value from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number[]} - The mode value.
    */
   getModeValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
     return this.#calculator.calculateModeValue(this.#listOfNumbers)
   }
 
   /**
    * Get the standard deviation value from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The standard deviation value.
    */
-  getStdDeviationValue () {
-    this.#errorHandler.errCheckIfEmpty(this.#listOfNumbers)
-
+  getStandardDeviationValue () {
     return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
   }
 
   /**
    * Get standard normal distribution from the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {object} - Data representing the normal distribution.
    */
   getNormalDistribution () {
@@ -133,21 +115,11 @@ export class ResultCalculator {
   /**
    * Get the variation coefficient of the collection.
    *
+   * @throws {Error} - Throws Error if collection is empty.
    * @returns {number} - The variation coefficient of collection.
    */
   getCoefficientOfVariationValue () {
-    return 0
-  }
-
-  /**
-   * Calculate a margin of error to get a confidence interval.
-   *
-   * @param {number} percent - Percent of a quantity.
-   * @param {number} quantity - Total quantity.
-   * @returns {number} - The calculated margin of error.
-   */
-  calculateMarginOfError (percent, quantity) {
-    return 0
+    return this.#calculator.calculateCoefficientOfVariation(this.#listOfNumbers)
   }
 
   /**
