@@ -13,7 +13,7 @@ Den här modulen har enbart testats med automatiska enhetstester, och testerna h
 
 ---
 
->![test-passed](images\test-passed.jpg)
+>![test-passed](images/test-passed.jpg)
 
 # Test suites
 
@@ -30,17 +30,17 @@ Här nedan ges en detaljerad beskrivning av testsuiterna, och de sub-suiter som 
 ### `"Add data to collection"`
 Här testas möjligheten att lägga till ett nummer till listan. Det stora fokuset ligger på att man bara ska kunna lägga till datatypen "number".
 
-![inject-data](images\inject-data.jpeg)
+![inject-data](images/inject-data.jpeg)
 
 ### `"Read calculated data"`
 Även om själva uträkningarna testas i suiten Calculator, så behöver det finnas en del tester som kontrollerar att uträkningarna sker på rätt sätt ihop med samlingen av nummer som hålls av klassen "ResultCalculator", som är den datan som skickas ut till användaren.
 
-![inject-data](images\read-data.jpeg)
+![inject-data](images/read-data.jpeg)
 
 ### `"Read normal distribution"`
 Här testas beteendet i ett tänkt användningsfall, för att kontrollera att de nummer man lägger in i samlingen räknas ut på rätt sätt. 
 
-![inject-data](images\end-product-data.jpeg)
+![inject-data](images/end-product-data.jpeg)
 
 </details>
 
@@ -55,22 +55,22 @@ Här testas beteendet i ett tänkt användningsfall, för att kontrollera att de
 ### `"Calculate descriptive statistics"`
 I den här sub-suiten testas metoderna som gör själva uträkningarna i modulen. 
 
-![inject-data](images\calculator.jpeg)
+![inject-data](images/calculator.jpeg)
 
 ### `"Calculate with invalid data"`
 Den här sub-suiten testar metoderna med felaktig input.
 
-![inject-data](images\calculator-invalid-input.jpeg)
+![inject-data](images/calculator-invalid-input.jpeg)
 
 ### `"Calculate a normal distribution data with decimal input"`
 Här testas att ett förväntat objekt med data kan skapas även med decimala tal.
 
-![inject-data](images\calculator-norm-dist.jpeg)
+![inject-data](images/calculator-norm-dist.jpeg)
 
 ### `"Calculate frequency"`
 Här testas att en frekvenstabell kan skapas både med decimala tal, och heltal.
 
-![inject-data](images\calculator-frequency.jpeg)
+![inject-data](images/calculator-frequency.jpeg)
 
 </details>
 
@@ -82,11 +82,11 @@ Här testas att en frekvenstabell kan skapas både med decimala tal, och heltal.
 
 ### `"Error check number"`
 
-![inject-data](images\error-handler-number.jpeg)
+![inject-data](images/error-handler-number.jpeg)
 
 ### `"Error check empty array"`
 
-![inject-data](images\error-handler-array.jpeg)
+![inject-data](images/error-handler-array.jpeg)
 </details>
 
 <details>
@@ -95,5 +95,5 @@ Här testas att en frekvenstabell kan skapas både med decimala tal, och heltal.
 ## Sorter
 </summary>
 
-![inject-data](images\sorter.jpeg)
+![inject-data](images/sorter.jpeg)
 </details>
