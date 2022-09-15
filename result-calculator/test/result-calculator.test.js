@@ -56,7 +56,7 @@ describe('ResultCalculator', () => {
   })
 
   describe('Read normal distribution', () => {
-    test('Normal distribution', () => {
+    test('Read a summary of all data from an input list of numbers', () => {
       const calculator = new ResultCalculator()
       const numbersToUse = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5]
 
