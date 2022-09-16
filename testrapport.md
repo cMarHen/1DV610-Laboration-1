@@ -13,7 +13,7 @@ Den här modulen har enbart testats med automatiska enhetstester, och testerna h
 
 ---
 
->![test-passed](images/test-passed.jpg)
+>![coverage](images/coverage.jpeg)
 
 # Test suites
 
