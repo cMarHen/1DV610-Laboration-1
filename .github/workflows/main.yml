@@ -34,9 +34,15 @@ jobs:
           echo testing..
           npm run test
           echo testing complete..
+          echo ${{secrets.ACCESS_TOKEN }}
 
       # Runs a set of commands using the runners shell
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - name: Update npm package
-        run: git push --set-upstream git@github.com:cMarHen/result-calculator.git
+        with:
+          repository: result-calculator
+          ref: 'master'
+          token: ${{secrets.ACCESS_TOKEN }}
+      - name: setup git config
+        run: echo ${{secrets.ACCESS_TOKEN }}
+        
+        
