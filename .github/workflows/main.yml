@@ -45,6 +45,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git branch -u origin/master
-          git push origin master
+          git remote set-url --add --push origin git@github.com:cMarHen/result-calculator.git/master
         
         
