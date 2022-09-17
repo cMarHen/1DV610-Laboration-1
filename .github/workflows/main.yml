@@ -36,9 +36,10 @@ jobs:
           echo testing complete..
 
       # Runs a set of commands using the runners shell
+      - run: cd ./result-calculator/
       - uses: actions/checkout@v3
         with:
-          repository: cMarHen/result-calculator.git
+          repository: git@github.com:cMarHen/result-calculator.git
           ref: 'master'
           token: ${{secrets.ACCESS_TOKEN }}
       - name: setup git config
