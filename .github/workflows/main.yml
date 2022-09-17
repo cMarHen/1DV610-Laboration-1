@@ -36,8 +36,11 @@ jobs:
           echo testing complete..
 
       # Runs a set of commands using the runners shell
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       - name: Update npm package
-      - run: npm ci
-      - run: npm publish
-        env: 
-          NODE_AUTH_TOKEN: ${{ NPM_TOKEN.NPM_TOKEN }}
+        run: | 
+          npm ci
+          npm publish
+            env: 
+              NODE_AUTH_TOKEN: ${{ NPM_TOKEN.NPM_TOKEN }}
