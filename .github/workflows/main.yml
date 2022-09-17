@@ -34,12 +34,11 @@ jobs:
           echo testing..
           npm run test
           echo testing complete..
-          echo ${{secrets.ACCESS_TOKEN }}
 
       # Runs a set of commands using the runners shell
       - uses: actions/checkout@v3
         with:
-          repository: result-calculator
+          repository: git@github.com:cMarHen/result-calculator.git
           ref: 'master'
           token: ${{secrets.ACCESS_TOKEN }}
       - name: setup git config
