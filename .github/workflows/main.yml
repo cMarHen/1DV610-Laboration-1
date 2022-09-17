@@ -22,14 +22,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: build
-        run: echo Starting up..
-
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
       # Runs a single command using the runners shell
       - name: test
         run: | 
-          cd result-calculator
+          echo changing directory..
+          cd ./result-calculator/
+          echo installing..
+          npm install
+          echo testing..
           npm run test
+          echo testing complete..
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
