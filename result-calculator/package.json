@@ -1,6 +1,6 @@
 {
   "name": "result-calculator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Analyze statistics from array of numbers.",
   "main": "ResultCalculator.js",
   "type": "module", 
