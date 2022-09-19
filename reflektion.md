@@ -29,7 +29,7 @@ I ResultCalculator finns getNormalDistribution, som anropar metoden summarizeNor
 | Namn och förklaring | Antal rader | Reflektioner och regler från Clean Code |
 | --- |  --- | --- |
 | **summarizeNormalDistributionData** <br /> Hämtar värden genom ett antal metodanrop och returnerar dem som ett objekt. | 16 | **One Level Of Abstraction per Function** <br /> Den här metoden sammanställer resultat, genom att anropa andra metoder som gör själva uträkningarna. |
-| **calculateMedianValue** <br /> Description... | 8 | **Do One Thing** <br />  |
-| **calculateFrequency** <br /> Description... | - | Reflektion |
-| **sortArray** <br /> Description... | - | Inga sidoeffekter |
-| **methodName** <br /> Description... | - | Reflektion |
+| **calculateMedianValue** <br /> Räknar ut medianen utifrån en lista av nummer. | 9 | **Do One Thing** <br /> Eventuellt kan man tänka sig att den här metoden gör två saker, eftersom beroende på antalet, får den räkna ut medianen på två olika sätt. <br /> **Have No Side Effects** <br /> Arrayen som skickas in modifieras inte på något sätt.  |
+| **calculateFrequency** <br /> Räknar ut och skapar en frekvenstabell utifrån en lista av nummer. | 11 | **Exceptions to returning Error Codes** <br /> Istället för att modulen på något sätt blandar sig i hur fel hanteras, får användaren på ett sätt som passar den, ta hand om ett fel som kastas. <br /> **Error Handling is One Thing** <br /> Felhanteringen som görs i modulen, görs via metodanrop, för att låta ett annat objekt lösa problemet. |
+| **calculateStandardDeviation** <br /> Räknar ut standardavvikelse utifrån en lista av nummer. | 8 | Inga sidoeffekter |
+| **calculateModeValue** <br /> Räknar ut lägesmåttet utifrån en lista av nummer. | 7 | **Do One Thing** <br /> Det känns som att den här metoden gör ganska mycket. Först sammanställer den informationen den behöver, sen räknar den ut lägesmåttet. <br /> **One Level Of Abstraction per Function** <br /> Först är det sammanställning, som är ganska enkel att förstå, sedan kommer en uträkning med kedjade array-metoder som blir väldigt komplex att förstå. Det blir konstigt att läsa den här metoden. |

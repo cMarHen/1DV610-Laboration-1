@@ -1,8 +1,10 @@
 # result-calculator
 
-## By: Martin Henriksson
+## Author: Martin Henriksson - mh225wd@student.lnu.se
 
 Result-calculator is a module that is free of dependency and lets you safely and temporarily store numbers in a list, and then use it for statistical analysis or result provider. The module serves an interface that will let you get a quick access to the most common statistical operations, like standard deviation, mean, highest and lowest number and so on. For a more complex analysis, there is an operation for normal distribution aswell.
+
+This module is part of the course 1dv610 @Linneaus University - Kalmar, Sweden
 
 ---
 
