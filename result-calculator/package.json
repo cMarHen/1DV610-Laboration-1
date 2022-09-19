@@ -1,9 +1,13 @@
 {
   "name": "result-calculator",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
+  "description": "Analyze statistics from array of numbers.",
+  "main": "ResultCalculator.js",
+  "type": "module", 
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cMarHen/1DV610-Laboration-1.git"
+  },
   "scripts": {
     "test": "npx --node-options=--experimental-vm-modules jest || exit 0",  
     "test:coverage": "npx --node-options=--experimental-vm-modules jest --coverage || exit 0",  
@@ -12,8 +16,8 @@
 
   },
   "keywords": [],
-  "author": "Martin Henriksson",
-  "license": "ISC",
+  "author": "Martin Henriksson <mh225wd@student.lnu.se>",
+  "license": "MIT",
   "dependencies": {
     "eslint": "^8.23.0",
     "@lnu/eslint-config": "^1.1.4",

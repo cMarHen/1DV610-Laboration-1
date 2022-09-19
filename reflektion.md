@@ -27,7 +27,7 @@ För att få en bra överblick över modulen har jag använt mig av en objekt-or
 
 ## Slutsats
 
-Jag har använt mig bokens namngivningssystem där jag namnger metoder efter vilken operation som görs, och vad den gör. För metodnamnet `getMeanValue`, gäller att `get` är typen av operation, och `MeanValue` är vad operationen gör. Tanken där är att sekvensen ska ge en berättelse. (Robert. C Martin, Clean Code, s40). 
+Jag har använt mig bokens namngivningssystem där jag namnger metoder efter vilken operation som görs, och vad den gör. För metodnamnet `getMeanValue`, gäller att `get` är typen av operation, och `MeanValue` är vad operationen gör. Tanken där är att sekvensen ska ge en berättelse. (Robert. C Martin, Clean Code, s40). Enligt boken kan jag bryta mot regeln om att undvika noice word's här. Mina metodnamn till metoder i klassen `Calculator` som returnerar ett värde, avslutas ofta med `Value`, vilket kan ses som ett typiskt noice word. Jag har varit osäker i hur jag ska namnge dessa metoder. Jag har landat i att jag vill att det ska bli tydligt att den returnerar ett värde, och jag har försökt vara konsekvent i hela klassen hur jag namnger. 
 
 De flesta metoderna metoderna i klasserna utanför det öppna interfacet tar en array som argument. Parameternamnet här är `arr`. Det är en vana jag har haft med mig sen jag började utbildningen, och efter att ha läst boken så känner jag att jag borde vara mer specifik i vad det faktiskt är. Man kan komma till slutsatsen att det *kanske* är en array, men inte mer om vad den innehåller. Om man följer regeln **Use Solution Domain Name** tillsammans med reflektionen över att listan av nummer borde heta `collection`, så vore ett bättre parameternamn `collectionOfNumbers`.
 
