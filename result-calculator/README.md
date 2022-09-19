@@ -1,16 +1,32 @@
 # result-calculator
 
-## By: Martin Henriksson
+## @cmartinh/result-calculator
 
 Result-calculator is a module that is free of dependency and lets you safely and temporarily store numbers in a list, and then use it for statistical analysis or result provider. The module serves an interface that will let you get a quick access to the most common statistical operations, like standard deviation, mean, highest and lowest number and so on. For a more complex analysis, there is an operation for normal distribution aswell.
 
 ---
 
-# Get started
+# Installation
 
-Import as ES6 module:
+```
+npm i @cmartinh/result-calculator
+```
+
+The module let you store numbers dynamically in a local variable, to later be used to analyze the data. 
+
 ````
 import { ResultCalculator } from result-calculator
+
+const numbersToUse = [ 4, 2, 3, 3]
+
+const resultCalculator = new ResulutCalculator()
+
+for (const number of numbersToUse) {
+  resultCalculator.setNumberToCollection(number)
+}
+
+console.log(resultCalculator.getMedianValue()) // => 3
+
 ````
 
 # Methods
@@ -29,6 +45,8 @@ import { ResultCalculator } from result-calculator
 >> TypeError: Will be thrown if argument is not of type `number`
 >
 > ### Example
+
+
 > ````
 > // To add a set of data to the collection, you need to iterate and push it number by number.
 > const resultCalculator = new Calculator()
