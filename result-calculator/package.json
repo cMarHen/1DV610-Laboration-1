@@ -15,10 +15,6 @@
     "lint:fix": "npx eslint ./src --fix || exit 0"
 
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:cMarHen/result-calculator.git"
-  },
   "keywords": [],
   "author": "Martin Henriksson <mh225wd@student.lnu.se>",
   "license": "MIT",
