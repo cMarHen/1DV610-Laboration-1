@@ -2,7 +2,7 @@
 
 ### Översikt
 
-Den här modulen har enbart testats med automatiska enhetstester, och testerna har drivit utvecklingen (TDD). Till min hjälp har jag använt Jest som testramverk. Det finns inga issues kopplade till testerna.
+Den här modulen har enbart testats med automatiska enhetstester, och testerna har drivit utvecklingen (TDD). Till min hjälp har jag använt Jest som testramverk. Det finns inga issues kopplade till testerna. För att själv köra testerna behöver du navigera till katalogen `/result-calculator/`. I terminalen skriver du sedan `npm install`, för att lokalt installera paketet. När det är färdigt skrivs `npm run test` i terminalen, för att köra testerna. Vill du få en sammanställning av coverage så skriver du `npm run test:coverage` istället.
 
 | Test suite | Amount of tests | Status |
 | --- | :---: | --- |
