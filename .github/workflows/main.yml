@@ -31,6 +31,8 @@ jobs:
           cd ./result-calculator/
           echo installing..
           npm install
+          echo linting..
+          npm run lint
           echo testing..
           npm run test
           echo testing complete..

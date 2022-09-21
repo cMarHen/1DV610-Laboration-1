@@ -13,6 +13,11 @@ Den här modulen har enbart testats med automatiska enhetstester, och testerna h
 
 ---
 
+### Kommentar till coverage: 
+
+Tabellen som genererats med ett coverage-tool, visar att nästan hälften av funktionerna inte testas. Det gäller metoderna i interfacet, som inte testas mer än ett fåtal. När jag skrev testerna så resonerade jag att jag ville testa calculator-metoderna direkt. Men jag tänker nu att jag också borde testa hela beteendet genom ResultCalculator's metoder också.
+
+
 >![coverage](images/coverage.jpeg)
 
 # Test suites

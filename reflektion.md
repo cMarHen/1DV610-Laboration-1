@@ -1,8 +1,8 @@
 # Reflektion
 
-Inledning
+### Inledning
 
-För att få en bra överblick över modulen har jag använt mig av en objekt-orienterad design. Min moduls syfte är att göra det enkelt för en användare att lägga in nummer i en lista, för att sedan kunna göra en statistisk analys av den. 
+ResultCalculator är en modul vars syfte är att göra det enkelt för en användare att lägga in nummer i en lista, för att sedan kunna göra en statistisk analys av den. 
 
 ## Namngivningsreflektioner
 
@@ -22,7 +22,7 @@ För att få en bra överblick över modulen har jag använt mig av en objekt-or
 | **summarizeNormalDistributionData** <br /> Hämtar värden genom ett antal metodanrop och returnerar dem som ett objekt. | 16 | **One Level Of Abstraction per Function** <br /> Den här metoden sammanställer resultat, genom att anropa andra metoder som gör själva uträkningarna. |
 | **calculateMedianValue** <br /> Räknar ut medianen utifrån en lista av nummer. | 9 | **Do One Thing** <br /> Eventuellt kan man tänka sig att den här metoden gör två saker, eftersom beroende på antalet, får den räkna ut medianen på två olika sätt. <br /> **Have No Side Effects** <br /> Arrayen som skickas in modifieras inte på något sätt.  |
 | **calculateFrequency** <br /> Räknar ut och skapar en frekvenstabell utifrån en lista av nummer. | 11 | **Exceptions to returning Error Codes** <br /> Istället för att modulen på något sätt blandar sig i hur fel hanteras, får användaren på ett sätt som passar den, ta hand om ett fel som kastas. <br /> **Error Handling is One Thing** <br /> Felhanteringen som görs i modulen, görs via metodanrop, för att låta ett annat objekt lösa problemet. |
-| **calculateStandardDeviation** <br /> Räknar ut standardavvikelse utifrån en lista av nummer. | 8 | Inga sidoeffekter |
+| **calculateStandardDeviation** <br /> Räknar ut standardavvikelse utifrån en lista av nummer. | 8 | **Have No Side Effects** <br /> Det är viktigt att den ursprungliga arrayen inte modifieras, utan behåller sitt tillstånd. Därför kopieras listan innan den skickas vidare. <br /> **Don't Repeat Yourself** <br /> Felhanteringen och medianuträknandet görs på flera ställen, därför bryts det ut i egna metoder för att förhinda kodduplicering, och göra det enklare att underhålla. |
 | **calculateModeValue** <br /> Räknar ut lägesmåttet utifrån en lista av nummer. | 7 | **Do One Thing** <br /> Det känns som att den här metoden gör ganska mycket. Först sammanställer den informationen den behöver, sen räknar den ut lägesmåttet. <br /> **One Level Of Abstraction per Function** <br /> Först är det sammanställning, som är ganska enkel att förstå, sedan kommer en uträkning med kedjade array-metoder som blir väldigt komplex att förstå. Det blir konstigt att läsa den här metoden. |
 
 ## Slutsats
@@ -34,12 +34,3 @@ De flesta metoderna metoderna i klasserna utanför det öppna interfacet tar en 
 Jag har också försökt att använda mig av regeln **Common Monadic Forms** där metodnamnet visar vad jag vill göra med argumentet. T.ex `getMeanValue(arr)`, där jag enligt föregående reflektion borde ha förbättrat ytterligare med `getMeanValue(collectionOfNumbers)` för att göra det ännu tydligare vad jag vill göra. 
 
 Något som jag har varit dålig på tidigare är att separera abstraktionsnivåerna, där jag blandar detaljerade uträkningar med mer grundläggande koncept. I den här modulen har jag aktivt försökt att bryta ut logiken så mycket jag kan i olika ansvarsområden, något jag tycker att jag har lyckats bra med. Jag upplever också att jag tycker det är roligare att skriva kod på det här sättet. Något jag är väldigt nöjd över är att interfacet som användaren använder, egentligen bara är metoder som returnerar andra metodanrop. 
-
-
-
-I ResultCalculator finns getNormalDistribution, som anropar metoden summarizeNormalDistributionData ??
-
-
-- Undvika sidoeffekter (s.44)
-- Använda en abstraktionsnivå per funktion (s.36)
-- Glömde först bort att använda issues, skrev istället ner enhetstester för saker jag ville göra.
