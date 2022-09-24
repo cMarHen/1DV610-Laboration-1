@@ -24,10 +24,16 @@
 Förtydligande: Examinator kommer sätta betyg oberoende på vad ni anser. 
 ​
 ## Återanvändning
-Beskriv hur du anpassat din kod och instruktioner för att någon annan programmerare skall kunna använda din modul. Om du skrivit instruktioner för din användare, länka till dessa. Om inte, beskriv här hur någon skall göra för att använda din modul.
+
+I [README.md](./result-calculator/README.md) finns beskrivet hur en användare kan använda modulen, dessutom finns ytterligare beskrivning hur man går tillväga om man vill utgå från modulen för att utöka modulen med egen kod.
+
+Dokumentet finns även på [npm](https://www.npmjs.com/package/result-calculator).
 ​
 ## Beskrivning av min kod
-Beskriv din kod på en hög abstraktionsnivå. En kort beskrivning av dina viktigaste klasser och metoder. Skapa gärna ett klassdiagram som bild. Använd det ni lärt er så här långt i 1dv607. Kommunicera så att jag kan förstå.
+
+Koden är uppbyggd på så sätt att klassen ResultCalculator är det öppna interfacet. Det är det enda som användaren kommer åt, och det enda man kan komma åt är metoderna som visas i klassdiagrammet. Metoderna i sig gör ingen logik, och användaren kan inte på något sätt förändra affärslogiken. Den här klassen håller också en lista av nummer som man bara kan förändra genom att skicka in data av typen `number`, eller anropa metoden `eraseCollectionData()`(Det är endast i de här två metoderna användaren kan göra något annat än att läsa data.). Det som händer när man anropar t.ex `getMeanValue()`, är att ett metodanrop till Calculator görs, och det är väl där inne som uträkningarna sker, skyddade från användarens inblandning.
+
+![Class-Diagram](./images/design.jpeg)
 ​
 ## Hur jag testat
 Beskriv hur du kommit fram till om din kod fungerar.
@@ -37,9 +43,9 @@ Beskriv hur du kommit fram till om din kod fungerar.
 Testrapport hittas i [testrapport.md](./testrapport.md)
 ​
 ​
-## Kodkvalitetskrav
+## Kodkvalitetskrav och Laborationsreflektion
 ​
-Kodkvalitetskrav och reflektion hittas i [reflektion.md](./reflektion.md)
+Kodkvalitetskrav och reflektion hittas i [reflektion.md](./reflektion.md).
+
+Här reklekteras dels kodkvalitetskrav, och en mer övergripande laborationsreflektion.
 ​
-## Laborationsreflektion
-Reflektera över uppgiften utifrån ett kodkvalitetsperspektiv. Använd begrepp ifrån boken. 
