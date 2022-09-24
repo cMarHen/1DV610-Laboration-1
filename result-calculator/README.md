@@ -258,3 +258,22 @@ Throws:
  ````
 
  ---
+
+ # For developers
+
+ ## Usage
+
+ To use the code and develop it further yourself you can fork the project [here](https://github.com/cMarHen/1DV610-Laboration-1/tree/master/result-calculator). When done, make sure you are in the `/result-calculator/` folder, and then run `npm i` to install test framework and lintings. 
+
+ ````
+ npm run test // => Run all test suites
+ npm run lint // => Lint the code
+ ````
+
+ ### To use the example app:
+
+  In the terminal, write `cd ./example-app` to go to the example-app folder. There you need to `npm install` to install the result-calculator package from npm.
+
+ ```
+ npm start // => Run the program
+ ```
