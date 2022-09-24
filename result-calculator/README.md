@@ -2,6 +2,8 @@
 
 Result-calculator is a module that lets you safely and temporarily store numbers in a list, and then use it for statistical analysis or result provider. The module serves an interface that will let you get a quick access to the most common statistical operations, like standard deviation, mean, highest and lowest number and so on. For a more complex analysis, there is an operation for normal distribution aswell.
 
+### ` Note: This is a project done as an assignment in the course 1dv610 @Linnaeus University.`
+
 ---
 
 ## Installation

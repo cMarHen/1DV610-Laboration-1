@@ -10,5 +10,8 @@
   },
   "keywords": [],
   "author": "Martin Henriksson",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "result-calculator": "1.0.1"
+  }
 }

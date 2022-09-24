@@ -1,6 +1,6 @@
 {
   "name": "result-calculator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Analyze statistics from array of numbers.",
   "main": "ResultCalculator.js",
   "type": "module", 
@@ -15,7 +15,7 @@
     "lint:fix": "npx eslint ./src --fix || exit 0"
 
   },
-  "keywords": [],
+  "keywords": ["javascript", "statistics"],
   "author": "Martin Henriksson <mh225wd@student.lnu.se>",
   "license": "MIT",
   "devDependencies": {
