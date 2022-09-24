@@ -2,6 +2,8 @@
 
 Result-calculator is a module that lets you safely and temporarily store numbers in a list, and then use it for statistical analysis or result provider. The module serves an interface that will let you get a quick access to the most common statistical operations, like standard deviation, mean, highest and lowest number and so on. For a more complex analysis, there is an operation for normal distribution aswell.
 
+### ` Note: This is a project done as an assignment in the course 1dv610 @Linnaeus University.`
+
 ---
 
 ## Installation
@@ -256,3 +258,22 @@ Throws:
  ````
 
  ---
+
+ # For developers
+
+ ## Usage
+
+ To use the code and develop it further yourself you can fork the project [here](https://github.com/cMarHen/1DV610-Laboration-1/tree/master/result-calculator). When done, make sure you are in the `/result-calculator/` folder, and then run `npm i` to install test framework and lintings. 
+
+ ````
+ npm run test // => Run all test suites
+ npm run lint // => Lint the code
+ ````
+
+ ### To use the example app:
+
+  In the terminal, write `cd ./example-app` to go to the example-app folder. There you need to `npm install` to install the result-calculator package from npm.
+
+ ```
+ npm start // => Run the program
+ ```
