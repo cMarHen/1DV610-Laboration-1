@@ -26,8 +26,15 @@ export class ResultCalculator {
    * @throws {TypeError}
    */
   setNumberToCollection (number) {
-    this.#errorHandler.errCheckForTypeNumber(number)
-    this.#listOfNumbers.push(number)
+    if (Array.isArray(number)) {
+      number.forEach((number) => {
+        this.#errorHandler.errCheckForTypeNumber(number)
+        this.#listOfNumbers.push(number)
+      })
+    } else {
+      this.#errorHandler.errCheckForTypeNumber(number)
+      this.#listOfNumbers.push(number)
+    }
   }
 
   /**

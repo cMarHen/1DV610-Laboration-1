@@ -38,7 +38,7 @@ console.log(resultCalculator.getMedianValue()) // => 3
 ## `setNumberToCollection`
 
 ---
-Use this to add a number into the list. You currenty can ***not*** add multiple numbers at once.
+Use this to add a number into the list. Since update 1.1.0 you can add multiple numbers at once as an array.
  
 Params:
 > number: A number to be added into the list
@@ -50,12 +50,11 @@ Throws:
 
 
  ````
- // To add a set of data to the collection, you need to iterate and push it number by number.
+ // You can add a set of data, through pass an array of numbers.
  const resultCalculator = new Calculator()
  const data = [4, 2, 3, 3, 4, 1, 5]
- for (const number of data) {
-  resultCalculator.setNumberToCollection(number)
- }
+
+resultCalculator.setNumberToCollection(data)
  
  ````
 
