@@ -36,7 +36,7 @@ Koden är uppbyggd på så sätt att klassen ResultCalculator är det öppna int
 ![Class-Diagram](./images/design.jpeg)
 ​
 ## Hur jag testat
-Beskriv hur du kommit fram till om din kod fungerar.
+Dels har jag haft en testdriven utveckling, där jag har försökt skriva enhetstester som jag utvecklar efter. Dels har jag använt mig av en example-app för att testa modulen i en mer realistisk miljö, både genom att använda modulen internt, men i slutskedet också genom att använda mig av npm-paketet.
 ​
 ### Testfall
 
