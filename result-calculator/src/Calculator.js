@@ -22,7 +22,7 @@ export class Calculator {
    * @param {number[]} arr - Array of number.
    * @returns {number} - The highest number.
    */
-  calculateHighestNumber (arr) {
+  getHighestNumber (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
     let highestNumber = arr[0]
@@ -40,7 +40,7 @@ export class Calculator {
    * @param {number[]} arr - Array of number.
    * @returns {number} - The lowest number.
    */
-  calculateLowestNumber (arr) {
+  getLowestNumber (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
     let lowestNumber = arr[0]
@@ -58,7 +58,7 @@ export class Calculator {
    * @param {number[]} arr - Array of number(s)
    * @returns {number} - The mean value.
    */
-  calculateMeanValue (arr) {
+  getMeanValue (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
     let totalValue = 0
@@ -75,7 +75,7 @@ export class Calculator {
    * @param {number[]} arr - Array of numbers.
    * @returns {number} - The median value.
    */
-  calculateMedianValue (arr) {
+  getMedianValue (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
     const sortedList = this.#sorter.sortArrayDescending([...arr])
 
@@ -92,12 +92,12 @@ export class Calculator {
   /**
    * Calculate mode value of an array of numbers.
    *
-   * @param {number[]} arr - The array to calculate.
+   * @param {number[]} arr - The array to get.
    * @returns {number[]} - An array with one or more numbers as mode.
    */
-  calculateModeValue (arr) {
+  getModeValue (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
-    const frequencyObject = this.calculateFrequency([...arr])
+    const frequencyObject = this.getFrequency([...arr])
 
     const maxFrequency = this.#sorter.sortObject(frequencyObject).pop()
 
@@ -111,13 +111,13 @@ export class Calculator {
   /**
    * Calculate standard deviation of an array of numbers.
    *
-   * @param {number[]} arr - The array to calculate.
+   * @param {number[]} arr - The array to get.
    * @returns {number} - The standard deviation of a set of numbers.
    * @memberof Calculator
    */
-  calculateStandardDeviation (arr) {
+  getStandardDeviation (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
-    const mean = this.calculateMeanValue([...arr])
+    const mean = this.getMeanValue([...arr])
 
     let sum = 0
     for (const number of arr) {
@@ -129,10 +129,10 @@ export class Calculator {
   /**
    * Calculate frequency of an array of numbers.
    *
-   * @param {number[]} arr - The array to calculate.
+   * @param {number[]} arr - The array to get.
    * @returns {object} - The frequency with the numbers as property and frequency as value.
    */
-  calculateFrequency (arr) {
+  getFrequency (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
     const frequency = {}
@@ -155,12 +155,12 @@ export class Calculator {
   summarizeNormalDistributionData (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
-    const mean = this.calculateMeanValue(arr)
-    const stdDeviation = this.calculateStandardDeviation(arr)
-    const standardError = this.#calculateStandardError(arr, stdDeviation)
-    const marginOfError = this.#calculateMarginOfError(standardError)
-    const confidenceInterval = this.#calculateConfidenceInterval(mean, marginOfError)
-    const frequencyTable = this.calculateFrequency(arr)
+    const mean = this.getMeanValue(arr)
+    const stdDeviation = this.getStandardDeviation(arr)
+    const standardError = this.#getStandardError(arr, stdDeviation)
+    const marginOfError = this.#getMarginOfError(standardError)
+    const confidenceInterval = this.#getConfidenceInterval(mean, marginOfError)
+    const frequencyTable = this.getFrequency(arr)
     return {
       mean,
       stdDeviation,
@@ -177,11 +177,11 @@ export class Calculator {
    * @param {number[]} arr - The array to analyze.
    * @returns {number} - The coefficient of variation as in percent.
    */
-  calculateCoefficientOfVariation (arr) {
+  getCoefficientOfVariation (arr) {
     this.#errorHandler.errCheckIfArrayIsEmpty([...arr])
 
-    const mean = this.calculateMeanValue([...arr])
-    const stdDev = this.calculateStandardDeviation([...arr])
+    const mean = this.getMeanValue([...arr])
+    const stdDev = this.getStandardDeviation([...arr])
 
     return stdDev / mean
   }
@@ -192,7 +192,7 @@ export class Calculator {
    * @param {number} standardError - Standard error to be used.
    * @returns {number} - Margin of error.
    */
-  #calculateMarginOfError (standardError) {
+  #getMarginOfError (standardError) {
     return 1.96 * standardError
   }
 
@@ -204,7 +204,7 @@ export class Calculator {
    * @returns {object} - Represent the confidence interval.
    * @memberof Calculator
    */
-  #calculateConfidenceInterval (mean, marginOfError) {
+  #getConfidenceInterval (mean, marginOfError) {
     return {
       upperBound: mean + marginOfError,
       lowerBound: mean - marginOfError
@@ -218,7 +218,7 @@ export class Calculator {
    * @param {number} stdDev -
    * @returns {number} - Standard error.
    */
-  #calculateStandardError (arr, stdDev) {
+  #getStandardError (arr, stdDev) {
     return stdDev / Math.sqrt(arr.length)
   }
 }

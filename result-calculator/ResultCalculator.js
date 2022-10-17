@@ -56,7 +56,7 @@ export class ResultCalculator {
    * @returns {number} - The highest number in the collection.
    */
   getHighestNumber () {
-    return this.#calculator.calculateHighestNumber(this.#listOfNumbers)
+    return this.#calculator.getHighestNumber(this.#listOfNumbers)
   }
 
   /**
@@ -66,7 +66,7 @@ export class ResultCalculator {
    * @returns {number} - The lowest number in the collection.
    */
   getLowestNumber () {
-    return this.#calculator.calculateLowestNumber(this.#listOfNumbers)
+    return this.#calculator.getLowestNumber(this.#listOfNumbers)
   }
 
   /**
@@ -76,7 +76,7 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMeanValue () {
-    return this.#calculator.calculateMeanValue(this.#listOfNumbers)
+    return this.#calculator.getMeanValue(this.#listOfNumbers)
   }
 
   /**
@@ -86,7 +86,7 @@ export class ResultCalculator {
    * @throws {Error} - If collection is empty.
    */
   getMedianValue () {
-    return this.#calculator.calculateMedianValue(this.#listOfNumbers)
+    return this.#calculator.getMedianValue(this.#listOfNumbers)
   }
 
   /**
@@ -96,7 +96,7 @@ export class ResultCalculator {
    * @returns {number[]} - The mode value.
    */
   getModeValue () {
-    return this.#calculator.calculateModeValue(this.#listOfNumbers)
+    return this.#calculator.getModeValue(this.#listOfNumbers)
   }
 
   /**
@@ -106,7 +106,7 @@ export class ResultCalculator {
    * @returns {number} - The standard deviation value.
    */
   getStandardDeviationValue () {
-    return this.#calculator.calculateStandardDeviation(this.#listOfNumbers)
+    return this.#calculator.getStandardDeviation(this.#listOfNumbers)
   }
 
   /**
@@ -126,7 +126,7 @@ export class ResultCalculator {
    * @returns {number} - The variation coefficient of collection.
    */
   getCoefficientOfVariationValue () {
-    return this.#calculator.calculateCoefficientOfVariation(this.#listOfNumbers)
+    return this.#calculator.getCoefficientOfVariation(this.#listOfNumbers)
   }
 
   /**

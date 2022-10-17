@@ -8,31 +8,31 @@ describe('Calculator', () => {
     const numbersToUseInTest = [-21, -3, 2, 10, 15, 16, 21, 32, 42, 42, 63, 24]
 
     test('Calculate Highest number should be 534', () => {
-      expect(calculator.calculateHighestNumber(numbersToUseInTest)).toEqual(63)
+      expect(calculator.getHighestNumber(numbersToUseInTest)).toEqual(63)
     })
 
     test('Calculate Lowest number should be -21', () => {
-      expect(calculator.calculateLowestNumber(numbersToUseInTest)).toEqual(-21)
+      expect(calculator.getLowestNumber(numbersToUseInTest)).toEqual(-21)
     })
 
     test('Calculate Mean value should be 144', () => {
-      expect(calculator.calculateMeanValue(numbersToUseInTest)).toEqual(20.25)
+      expect(calculator.getMeanValue(numbersToUseInTest)).toEqual(20.25)
     })
 
     test('Calculate Mode value should be 42', () => {
-      expect(calculator.calculateModeValue(numbersToUseInTest)).toEqual([42])
+      expect(calculator.getModeValue(numbersToUseInTest)).toEqual([42])
     })
 
     test('Calculate Median value should be 31.5', () => {
-      expect(calculator.calculateMedianValue(numbersToUseInTest)).toEqual(18.5)
+      expect(calculator.getMedianValue(numbersToUseInTest)).toEqual(18.5)
     })
 
     test('Calculate Standard deviation value should be close to 21.7030', () => {
-      expect(calculator.calculateStandardDeviation(numbersToUseInTest)).toBeCloseTo(21.7030)
+      expect(calculator.getStandardDeviation(numbersToUseInTest)).toBeCloseTo(21.7030)
     })
 
     test('Calculate Coefficient of variation value should be close to 1.0717', () => {
-      expect(calculator.calculateCoefficientOfVariation(numbersToUseInTest)).toBeCloseTo(1.0717)
+      expect(calculator.getCoefficientOfVariation(numbersToUseInTest)).toBeCloseTo(1.0717)
     })
   })
 
@@ -40,31 +40,31 @@ describe('Calculator', () => {
     const calculator = new Calculator()
     const emptyArray = []
     test('calculateMeanValue with empty array should throw an Error', () => {
-      expect(() => calculator.calculateMeanValue(emptyArray)).toThrow()
+      expect(() => calculator.getMeanValue(emptyArray)).toThrow()
     })
     test('calculateHighestNumber with empty array should throw an Error', () => {
-      expect(() => calculator.calculateHighestNumber(emptyArray)).toThrow()
+      expect(() => calculator.getHighestNumber(emptyArray)).toThrow()
     })
     test('calculateLowestNumber with empty array should throw an Error', () => {
-      expect(() => calculator.calculateLowestNumber(emptyArray)).toThrow()
+      expect(() => calculator.getLowestNumber(emptyArray)).toThrow()
     })
     test('calculateMedianValue with empty array should throw an Error', () => {
-      expect(() => calculator.calculateMedianValue(emptyArray)).toThrow()
+      expect(() => calculator.getMedianValue(emptyArray)).toThrow()
     })
     test('calculateModeValue with empty array should throw an Error', () => {
-      expect(() => calculator.calculateModeValue(emptyArray)).toThrow()
+      expect(() => calculator.getModeValue(emptyArray)).toThrow()
     })
     test('calculateStandardDeviation with empty array should throw an Error', () => {
-      expect(() => calculator.calculateStandardDeviation(emptyArray)).toThrow()
+      expect(() => calculator.getStandardDeviation(emptyArray)).toThrow()
     })
     test('calculateFrequency with empty array should throw an Error', () => {
-      expect(() => calculator.calculateFrequency(emptyArray)).toThrow()
+      expect(() => calculator.getFrequency(emptyArray)).toThrow()
     })
     test('summarizeNormalDistributionData with empty array should throw an Error', () => {
       expect(() => calculator.summarizeNormalDistributionData(emptyArray)).toThrow()
     })
     test('calculateCoefficientOfVariation with empty array should throw an Error', () => {
-      expect(() => calculator.calculateCoefficientOfVariation(emptyArray)).toThrow()
+      expect(() => calculator.getCoefficientOfVariation(emptyArray)).toThrow()
     })
   })
 
@@ -102,13 +102,13 @@ describe('Calculator', () => {
     test('Passing [1, 2, 3, 3, 2, 4, 3] should return a sorted object', () => {
       const objectToExpect = { 3: 3, 2: 2, 4: 1, 1: 1 }
 
-      expect(calculator.calculateFrequency(numbersToUse)).toEqual(objectToExpect)
+      expect(calculator.getFrequency(numbersToUse)).toEqual(objectToExpect)
     })
 
     test('Passing [1.432, 2.4, 3.75, 3.75, 2.334, 4.874, 3.25] should return a sorted object', () => {
       const objectToExpect = { 3.75: 2, 4.874: 1, 3.25: 1, 2.4: 1, 2.334: 1, 1.432: 1 }
 
-      expect(calculator.calculateFrequency(numbersWithDecimalsToUse)).toEqual(objectToExpect)
+      expect(calculator.getFrequency(numbersWithDecimalsToUse)).toEqual(objectToExpect)
     })
   })
 })

@@ -21,7 +21,7 @@ import { ResultCalculator } from result-calculator
 
 const numbersToUse = [ 4, 2, 3, 3]
 
-const resultCalculator = new ResulutCalculator()
+const resultCalculator = new ResultCalculator()
 
 for (const number of numbersToUse) {
   resultCalculator.setNumberToCollection(number)
